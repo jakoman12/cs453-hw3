@@ -9,6 +9,10 @@ class SavingsAccount {
     private double balance;
     private int numPreferred = 0;
 
+    public double getBalance(){
+        return balance;
+    }
+
     public void deposit(double amount) {
         lock.lock();
         try {
@@ -44,6 +48,20 @@ class SavingsAccount {
             lock.unlock();
         }
     }
+
+    public void transfer(double amount, SavingsAccount reserve) throws InterruptedException{
+        lock.lock();
+        try{
+            while(balance < amount){
+                sufficientFunds.await();
+            }
+            balance -= amount;
+            reserve.deposit(amount);
+        } finally {
+            lock.unlock();
+        }
+
+    }
 }
 
 
@@ -52,11 +70,13 @@ public class Main {
 
     public static void main(String[] args) {
         SavingsAccount account = new SavingsAccount();
+        SavingsAccount account2 = new SavingsAccount();
 
         Runnable depositor = () -> {
             double amount = 100.0;
             account.deposit(amount);
             System.out.println("Deposited " + amount);
+            System.out.println("Account 1 Balance: " + account.getBalance());
         };
 
         Runnable withdrawer = () -> {
@@ -69,9 +89,22 @@ public class Main {
             }
         };
 
+        System.out.println("Account 2 Balance: " + account.getBalance());
+        Runnable transferer = () -> {
+            double amount = 123.0;
+            try{
+                System.out.println("Account 2 Balance: " + account.getBalance());
+                account.transfer(2.0, account2);
+
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        };
+
         new Thread(depositor).start();
         new Thread(withdrawer).start();
-        System.out.println("Hello world!");
+        new Thread(transferer).start(); //spent 20 min debugging code only to realize I didn't start the thread
+
     }
 
 
