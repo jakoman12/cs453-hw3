@@ -89,13 +89,13 @@ public class Main {
             }
         };
 
-        System.out.println("Account 2 Balance: " + account.getBalance());
+        //System.out.println("Account 2 Balance: " + account2.getBalance());
         Runnable transferer = () -> {
             double amount = 123.0;
             try{
-                System.out.println("Account 2 Balance: " + account.getBalance());
-                account.transfer(2.0, account2);
 
+                account.transfer(2.0, account2);
+                System.out.println("Account 2 Balance: " + account2.getBalance());
             } catch (InterruptedException e){
                 e.printStackTrace();
             }

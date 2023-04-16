@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07bc0670-a7ae-428a-9ed6-9fcb65bb9489" name="Changes" comment="spent 20 min debugging only to realize i didnt start the thread">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681612658653</updated>
-      <workItem from="1681612660426" duration="1990000" />
+      <workItem from="1681612660426" duration="2064000" />
     </task>
     <task id="LOCAL-00001" summary="1 and 2 working">
       <created>1681613671690</created>
@@ -54,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681613671690</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="spent 20 min debugging only to realize i didnt start the thread">
+      <created>1681614668093</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681614668093</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
